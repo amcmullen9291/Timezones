@@ -73,11 +73,47 @@ export default function UserInput() {
 
 
     let EHour = parseInt(currentTime[0])
+    if(EHour < 0){
+      EHour +=12;
+    }
+    if(EHour > 12){
+      EHour -=12;
+    }
     let CHour = parseInt(currentTime[0])-1;
+    if(CHour < 0){
+      CHour +=12;
+    }
+    if(CHour > 12){
+      CHour -=12;
+    }
     let MHour = parseInt(currentTime[0])-2;
+    if(MHour < 0){
+      MHour +=12;
+    }
+    if(MHour > 12){
+      MHour -=12;
+    }
     let PHour = parseInt(currentTime[0])-3;
+    if(PHour < 0){
+      PHour +=12;
+    }
+    if(PHour > 12){
+      PHour -=12;
+    }
     let AHour = parseInt(currentTime[0])-4;
+    if(AHour < 0){
+      AHour +=12;
+    }
+    if(AHour > 12){
+      AHour -=12;
+    }
     let HiHour = parseInt(currentTime[0])-5;
+    if(HiHour < 0){
+      HiHour +=12;
+    }
+    if(HiHour > 12){
+      HiHour -=12;
+    }
   
     if(defaultTime-1 <= 0){
         CHour = parseInt(currentTime[0])+11;
