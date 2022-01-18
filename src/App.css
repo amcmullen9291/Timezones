@@ -40,3 +40,6 @@
     width: auto;
 }
 
+line:hover{
+    background-color: black;
+}

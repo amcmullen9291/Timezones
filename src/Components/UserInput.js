@@ -40,46 +40,76 @@ export default function UserInput() {
     setTime(newTime);
   }
 
-function setUserTimeZone(e){
-  e.preventDefault();
-  setTimeZone(e.target.value);
-    setEasternTimeZone(time+ (timeOfDayEntered == 'am' ? 'am':'pm'));
-  const currentTime = time.split(':');
-  const defaultTime = parseInt(currentTime[0]);
-  let CHour = parseInt(currentTime[0])-1;
-  let MHour = parseInt(currentTime[0])-2;
-  let PHour = parseInt(currentTime[0])-3;
-  let AHour = parseInt(currentTime[0])-4;
-  let HiHour = parseInt(currentTime[0])-5;
+  function setUserTimeZone(e){
+    e.preventDefault();
+    setTimeZone(e.target.value);
+    let currentTime = time.split(':');
+    let defaultTime = parseInt(currentTime[0]);
 
-  if(defaultTime-1 <= 0){
-      CHour = parseInt(currentTime[0])+11;
-  }
-  if(defaultTime-2 <= 0){
-    MHour = parseInt(currentTime[0])+10;
-  }
-  if(defaultTime-3 <= 0){
-    PHour = parseInt(currentTime[0])+9;
-  }
-  if(defaultTime-4 <= 0){
-    AHour = parseInt(currentTime[0])+8;
-  }
-  if(defaultTime-5 <= 0){
-    HiHour = parseInt(currentTime[0])+7;
+    if(e.target.value === 'CentralTimeZone'){
+      currentTime[0] = parseInt(currentTime[0])+1;
+      defaultTime+=1;
+    }
+
+    if(e.target.value === 'MountainTimeZone'){
+      currentTime[0] = parseInt(currentTime[0])+2;
+      defaultTime+=2;
+    }
+
+    if(e.target.value === 'PacificTimeZone'){
+      currentTime[0] = parseInt(currentTime[0])+3;
+      defaultTime+=3;
+    }
+
+    if(e.target.value === 'AlaskaTimeZone'){
+      currentTime[0] = parseInt(currentTime[0])+4;
+      defaultTime+=4;
+    }
+
+    if(e.target.value === 'HawaiiTimeZone'){
+      currentTime[0] = parseInt(currentTime[0])+5;
+      defaultTime+=5;
+    }
+
+
+    let EHour = parseInt(currentTime[0])
+    let CHour = parseInt(currentTime[0])-1;
+    let MHour = parseInt(currentTime[0])-2;
+    let PHour = parseInt(currentTime[0])-3;
+    let AHour = parseInt(currentTime[0])-4;
+    let HiHour = parseInt(currentTime[0])-5;
+  
+    if(defaultTime-1 <= 0){
+        CHour = parseInt(currentTime[0])+11;
+    }
+    if(defaultTime-2 <= 0){
+      MHour = parseInt(currentTime[0])+10;
+    }
+    if(defaultTime-3 <= 0){
+      PHour = parseInt(currentTime[0])+9;
+    }
+    if(defaultTime-4 <= 0){
+      AHour = parseInt(currentTime[0])+8;
+    }
+    if(defaultTime-5 <= 0){
+      HiHour = parseInt(currentTime[0])+7;
+    }
+  
+    let eastTime = EHour+":"+hours[1];
+    let time2 = CHour+":"+hours[1]; 
+    let time3 = MHour+":"+hours[1];
+    let time4 = PHour+":"+hours[1];
+    let time5 = AHour+":"+hours[1];
+    let time6 = HiHour+":"+hours[1];
+  
+    setEasternTimeZone(eastTime+ (timeOfDayEntered == 'am' ? 'am':'pm'));
+    setCentralTimeZone(time2);
+    setMountainTimeZone(time3);
+    setPacificTimeZone(time4);
+    setAlaskaTimeZone(time5);
+    setHawaiiTimeZone(time6);
   }
 
-  let time2 = CHour+":"+hours[1]; 
-  let time3 = MHour+":"+hours[1];
-  let time4 = PHour+":"+hours[1];
-  let time5 = AHour+":"+hours[1];
-  let time6 = HiHour+":"+hours[1];
-
-  setCentralTimeZone(time2);
-  setMountainTimeZone(time3);
-  setPacificTimeZone(time4);
-  setAlaskaTimeZone(time5);
-  setHawaiiTimeZone(time6);
-}
   return (
       <>
       <center>
@@ -101,7 +131,7 @@ function setUserTimeZone(e){
                     </select>
                 </div>
                 <br/>
-                <span className="output"> (Set a time, then select a time zone.)</span><br/>
+                <span className="output"> (Choose a time, then select a time zone.)</span><br/>
                 {result} 
                 <center>{timeZone}</center>
         </div>

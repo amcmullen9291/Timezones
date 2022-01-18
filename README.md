@@ -1,3 +1,3 @@
 # Timezones
 
-Using Recoil js to show the current time in different timezones based on user input of desired time. 
+Using Recoil js to show the current time in different timezones based on user input. 
