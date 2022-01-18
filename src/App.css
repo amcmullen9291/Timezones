@@ -18,3 +18,24 @@
 #newYork{
     margin-left: 1%;
 }
+
+.UserInputClock{
+    position:fixed;
+    bottom:0;
+    font-size: 60px;
+}
+#userInputClockArea{
+    position: absolute;
+    bottom:0;
+    margin-bottom: 5%;
+    margin-left:60%;
+    transform: translateX(-50%);
+    background-color: darkgrey;
+    width: 700px;
+}
+
+#clockAreaInfo{
+   padding: 3%;
+   border: 1px solid black;
+   width: auto;
+}

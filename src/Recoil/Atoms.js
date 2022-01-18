@@ -29,3 +29,8 @@ export const hawaiiTimeZone = atom({
     key: 'hawaiiTimeZone',
     default: "12:00",
 })
+
+export const UserInput = atom ({
+    key: 'UserTimeInput',
+    default: "06:00",
+})

@@ -5,6 +5,7 @@ import {
     pacificTimeZone, 
     alaskaTimeZone, 
     hawaiiTimeZone,
+    UserInput,
 } from './Atoms';
 
 import { selector } from 'recoil'
@@ -57,3 +58,10 @@ export const HawaiiTimeState = selector({
     },
 })
 
+export const UserTimeInput = selector({
+    key: 'enteredTimeInput',
+    get: ({ get }) => {
+        const  enteredTime = get(UserInput)
+        return enteredTime;
+    },
+})

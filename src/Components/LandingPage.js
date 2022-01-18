@@ -5,6 +5,8 @@ import { MountainTimeZone } from './MountainTimeZone';
 import { PacificTimeZone } from './PacificTimeZone';
 import { AlaskaTimeZone } from './AlaskaTimeZone';
 import { HawaiiTimeZone } from './Hawaii-AleutianTimeZone';
+import UserInputClock from './UserInputClock';
+import UserInput from './UserInput';
 
 
 const LandingPage = () => {
@@ -30,6 +32,9 @@ const LandingPage = () => {
             <br/> <center><HawaiiTimeZone/></center>
             </span>
         </div>
+
+        <UserInputClock/>
+        <UserInput/>
         </>
     )
 }
