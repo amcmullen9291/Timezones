@@ -3,7 +3,15 @@ import TimePicker from 'react-time-picker';
 
 export default function UserInput() {
   const [time, setTime] = useState('10:00');
+  const timeOfDay = document.querySelector("#clockAreaInfo > div > div > div > div > select").value;
 
+  const hours = time.split(':');
+  if(hours[0]>12){
+    hours[0]-=12;
+    const newTime = hours[0]+":"+hours[1];
+    setTime(newTime);
+  }
+  
   return (
       <>
       <center>
@@ -17,10 +25,11 @@ export default function UserInput() {
                     />
                 </div>
                 <br/>
-            <span id="report">If it is {time} in New York...</span>
+            <span id="report">If it is {time}{timeOfDay}, in New York...</span>
         </div>
     </div>
     </center>
     </>
   );
 }
+
