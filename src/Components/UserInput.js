@@ -3,11 +3,12 @@ import TimePicker from 'react-time-picker';
 
 export default function UserInput() {
   const [time, setTime] = useState('10:00');
-  
+  var Area = ""; 
+
   if(document.querySelector("#clockAreaInfo > div > div > div > div > select")){
     const timeOfDayEntered = document.querySelector("#clockAreaInfo > div > div > div > div > select").value;
     var result = (
-        <span id="report">If it is <u>{time} {timeOfDayEntered}</u>, </span>
+        <span id="report">If it is <u>{time} {timeOfDayEntered}</u> in the </span>
         )
     }
 
@@ -23,13 +24,12 @@ export default function UserInput() {
     const newTime = hours[0]+":"+hours[1];
     setTime(newTime);
   }
-
-
-function getTimeZone() {
-    let selectElement = document.querySelector('#select1');
-    let output = selectElement.options[selectElement.selectedIndex].value;
-    document.querySelector('.output').textContent = output;
+if((document.getElementById('select1')) && (document.getElementById('select1')!= null)){
+  const areaSelected = document.getElementById('select1').value
+  console.log(areaSelected);
+  Area = areaSelected;
 }
+
   return (
       <>
       <center>
@@ -49,10 +49,11 @@ function getTimeZone() {
                         <option value="AlaskaTimeZone">Alaska Time Zone</option>
                         <option value="HawaiiTimeZone">Hawaii-Aleutian Time</option>
                     </select>
-                    <button onclick={getTimeZone()}>Get local time</button>
                 </div>
                 <br/>
-                {result} <span class="output"> (Select a time zone, first.)</span>
+                <span class="output"> (Select a time zone, first.)</span><br/>
+                {result} 
+                <center>{Area}</center>
         </div>
     </div>
     </center>
