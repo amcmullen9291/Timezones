@@ -1,31 +1,31 @@
 import { atom } from 'recoil'
 
-export const easternTimeZone = atom({
+export const easternTimeZoneState = atom({
     key: 'easternTimeZone',
     default: "12:00",
 })
 
-export const centralTimeZone = atom({
+export const centralTimeZoneState = atom({
     key: 'centralTimeZone',
     default: "12:00",
 })
 
-export const mountainTimeZone = atom({
+export const mountainTimeZoneState = atom({
     key: 'mountainTimeZone',
     default: "12:00",
 })
 
-export const pacificTimeZone = atom({
+export const pacificTimeZoneState = atom({
     key: 'pacificTimeZone',
     default: "12:00",
 })
 
-export const alaskaTimeZone = atom({
+export const alaskaTimeZoneState = atom({
     key: 'alaskaTimeZone',
     default: "12:00",
 })
 
-export const hawaiiTimeZone = atom({
+export const hawaiiTimeZoneState = atom({
     key: 'hawaiiTimeZone',
     default: "12:00",
 })

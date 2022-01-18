@@ -1,10 +1,10 @@
 import { 
-    easternTimeZone, 
-    centralTimeZone, 
-    mountainTimeZone, 
-    pacificTimeZone, 
-    alaskaTimeZone, 
-    hawaiiTimeZone,
+    easternTimeZoneState, 
+    centralTimeZoneState, 
+    mountainTimeZoneState, 
+    pacificTimeZoneState, 
+    alaskaTimeZoneState, 
+    hawaiiTimeZoneState,
     UserInput,
 } from './Atoms';
 
@@ -13,7 +13,7 @@ import { selector } from 'recoil'
 export const EasternTimeState = selector({
     key: 'currentEasternTime',
     get: ({ get }) => {
-        const  eastcoastTime = get(easternTimeZone)
+        const  eastcoastTime = get(easternTimeZoneState)
         return eastcoastTime;
     },
 })
@@ -21,7 +21,7 @@ export const EasternTimeState = selector({
 export const CentralTimeState = selector({
     key: 'currentCentralTime',
     get: ({ get }) => {
-        const  centralTime = get(centralTimeZone)
+        const  centralTime = get(centralTimeZoneState)
         return centralTime;
     },
 })
@@ -29,7 +29,7 @@ export const CentralTimeState = selector({
 export const MountainTimeState = selector({
     key: 'currentMountainTime',
     get: ({ get }) => {
-        const  mountainTime = get(mountainTimeZone)
+        const  mountainTime = get(mountainTimeZoneState)
         return mountainTime;
     },
 })
@@ -37,7 +37,7 @@ export const MountainTimeState = selector({
 export const PacificTimeState = selector({
     key: 'currentPacificTime',
     get: ({ get }) => {
-        const  pacificTime = get(pacificTimeZone)
+        const  pacificTime = get(pacificTimeZoneState)
         return pacificTime;
     },
 })
@@ -45,7 +45,7 @@ export const PacificTimeState = selector({
 export const AlaskaTimeState = selector({
     key: 'currentAlaskaTime',
     get: ({ get }) => {
-        const  alaskaTime = get(alaskaTimeZone)
+        const  alaskaTime = get(alaskaTimeZoneState)
         return alaskaTime;
     },
 })
@@ -53,7 +53,7 @@ export const AlaskaTimeState = selector({
 export const HawaiiTimeState = selector({
     key: 'currentHawaiiTime',
     get: ({ get }) => {
-        const  hawaiiTime = get(hawaiiTimeZone)
+        const  hawaiiTime = get(hawaiiTimeZoneState)
         return hawaiiTime;
     },
 })

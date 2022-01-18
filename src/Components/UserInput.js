@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import TimePicker from 'react-time-picker';
+import {  useSetRecoilState} from 'recoil';
+import { easternTimeZoneState, setEasternTimeZoneState } from '../Recoil/Atoms';
+
 
 export default function UserInput() {
   const [time, setTime] = useState('10:00');
-  var Area = ""; 
+  const [ timeZone, setTimeZone ] = useState();
+
+  const setEasternTimeZone = useSetRecoilState(easternTimeZoneState);
 
   if(document.querySelector("#clockAreaInfo > div > div > div > div > select")){
     const timeOfDayEntered = document.querySelector("#clockAreaInfo > div > div > div > div > select").value;
@@ -24,12 +29,12 @@ export default function UserInput() {
     const newTime = hours[0]+":"+hours[1];
     setTime(newTime);
   }
-if((document.getElementById('select1')) && (document.getElementById('select1')!= null)){
-  const areaSelected = document.getElementById('select1').value
-  console.log(areaSelected);
-  Area = areaSelected;
-}
 
+function setUserTimeZone(e){
+  e.preventDefault();
+  setTimeZone(e.target.value);
+  setEasternTimeZone(time);
+}
   return (
       <>
       <center>
@@ -41,7 +46,7 @@ if((document.getElementById('select1')) && (document.getElementById('select1')!=
                         onChange={setTime}
                         value={time}
                     />
-                    <select id="select1">
+                    <select id="select1" onChange={(e) => {setUserTimeZone(e)}}>
                         <option value="EasternTimeZone">Eastern Time</option>
                         <option value="CentralTimeZone">Central Time</option>
                         <option value="MountainTimeZone">Mountain Time</option>
@@ -51,9 +56,9 @@ if((document.getElementById('select1')) && (document.getElementById('select1')!=
                     </select>
                 </div>
                 <br/>
-                <span class="output"> (Select a time zone, first.)</span><br/>
+                <span className="output"> (Select a time zone first.)</span><br/>
                 {result} 
-                <center>{Area}</center>
+                <center>{timeZone}</center>
         </div>
     </div>
     </center>
