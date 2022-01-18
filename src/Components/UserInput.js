@@ -42,7 +42,6 @@ export default function UserInput() {
 
 function setUserTimeZone(e){
   e.preventDefault();
-  const zone = e.target;
   setTimeZone(e.target.value);
     setEasternTimeZone(time+ (timeOfDayEntered == 'am' ? 'am':'pm'));
   const currentTime = time.split(':');
