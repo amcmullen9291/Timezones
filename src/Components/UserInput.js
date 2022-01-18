@@ -12,7 +12,7 @@ import { hawaiiTimeZoneState } from '../Recoil/Atoms';
 export default function UserInput() {
   const [time, setTime] = useState('00:00');
   const [ timeZone, setTimeZone ] = useState();
-
+  let timeOfDayEntered = "";
   const setEasternTimeZone = useSetRecoilState(easternTimeZoneState);
   const setCentralTimeZone = useSetRecoilState(centralTimeZoneState);
   const setMountainTimeZone = useSetRecoilState(mountainTimeZoneState);
@@ -21,7 +21,7 @@ export default function UserInput() {
   const setHawaiiTimeZone = useSetRecoilState(hawaiiTimeZoneState);
 
   if(document.querySelector("#clockAreaInfo > div > div > div > div > select")){
-    const timeOfDayEntered = document.querySelector("#clockAreaInfo > div > div > div > div > select").value;
+     timeOfDayEntered = document.querySelector("#clockAreaInfo > div > div > div > div > select").value;
     var result = (
         <span id="report">If it is <u>{time} {timeOfDayEntered}</u> in the </span>
         )
@@ -44,7 +44,7 @@ function setUserTimeZone(e){
   e.preventDefault();
   const zone = e.target;
   setTimeZone(e.target.value);
-    setEasternTimeZone(time);
+    setEasternTimeZone(time+ (timeOfDayEntered == 'am' ? 'am':'pm'));
   const currentTime = time.split(':');
   const defaultTime = parseInt(currentTime[0]);
   let CHour = parseInt(currentTime[0])-1;
@@ -69,12 +69,11 @@ function setUserTimeZone(e){
     HiHour = parseInt(currentTime[0])+7;
   }
 
-  let time2 = CHour+":"+hours[1];
+  let time2 = CHour+":"+hours[1]; 
   let time3 = MHour+":"+hours[1];
   let time4 = PHour+":"+hours[1];
   let time5 = AHour+":"+hours[1];
   let time6 = HiHour+":"+hours[1];
-  //@ return to 12hr
 
   setCentralTimeZone(time2);
   setMountainTimeZone(time3);
@@ -103,7 +102,7 @@ function setUserTimeZone(e){
                     </select>
                 </div>
                 <br/>
-                <span className="output"> (Select a time, then time zone.)</span><br/>
+                <span className="output"> (Set a time, then select a time zone.)</span><br/>
                 {result} 
                 <center>{timeZone}</center>
         </div>
