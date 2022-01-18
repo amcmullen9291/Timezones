@@ -137,13 +137,32 @@ export default function UserInput() {
     let time4 = PHour+":"+hours[1];
     let time5 = AHour+":"+hours[1];
     let time6 = HiHour+":"+hours[1];
-  
-    setEasternTimeZone(eastTime+ (timeOfDayEntered == 'am' ? 'am':'pm'));
+
+    setEasternTimeZone(eastTime);
+    if(eastTime.includes("12:")){
+      setEasternTimeZone(eastTime+(timeOfDayEntered == 'am' ? 'pm':'am')) ;
+    }
     setCentralTimeZone(time2);
+    if(time2.includes("12:")){
+      setEasternTimeZone(eastTime+(timeOfDayEntered == 'am' ? 'pm':'am')) ;
+    }
     setMountainTimeZone(time3);
+    if(time3.includes("12:")){
+      setEasternTimeZone(eastTime+(timeOfDayEntered == 'am' ? 'pm':'am')) ;
+    }
     setPacificTimeZone(time4);
+    if(time4.includes("12:")){
+      setEasternTimeZone(eastTime+(timeOfDayEntered == 'am' ? 'pm':'am')) ;
+    }
     setAlaskaTimeZone(time5);
+    if(time5.includes("12:")){
+      setEasternTimeZone(eastTime+(timeOfDayEntered == 'am' ? 'pm':'am')) ;
+    }
     setHawaiiTimeZone(time6);
+    if(time6.includes("12:")){
+      setEasternTimeZone(eastTime+(timeOfDayEntered == 'am' ? 'pm':'am')) ;
+    }
+
   }
 
   return (
