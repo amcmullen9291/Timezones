@@ -1,0 +1,20 @@
+
+#currentTimesWall{
+    background: darkblue;
+    height: 40vh;
+    width: 100vw;
+    display: flex;
+  justify-content: space-between;    
+}
+
+.clockWall{
+    margin-top: 6px;
+}
+
+#hawaii{
+    margin-right:1%
+}
+
+#newYork{
+    margin-left: 1%;
+}
