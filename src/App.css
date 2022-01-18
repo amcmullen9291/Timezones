@@ -25,9 +25,9 @@
     font-size: 60px;
 }
 #userInputClockArea{
-    position: absolute;
+    position: fixed;
     bottom:0;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     margin-left:60%;
     transform: translateX(-50%);
     background-color: darkgrey;
@@ -35,8 +35,8 @@
 }
 
 #clockAreaInfo{
-   padding: 3%;
-   border: 1px solid black;
-   width: auto;
+    padding: 3%;
+    border: 1px solid black;
+    width: auto;
 }
 

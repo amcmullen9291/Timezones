@@ -10,7 +10,7 @@ import { hawaiiTimeZoneState } from '../Recoil/Atoms';
 
 
 export default function UserInput() {
-  const [time, setTime] = useState('10:00');
+  const [time, setTime] = useState('00:00');
   const [ timeZone, setTimeZone ] = useState();
 
   const setEasternTimeZone = useSetRecoilState(easternTimeZoneState);
@@ -59,13 +59,13 @@ function setUserTimeZone(e){
   if(defaultTime-2 <= 0){
     MHour = parseInt(currentTime[0])+10;
   }
-  if(defaultTime-2 <= 0){
+  if(defaultTime-3 <= 0){
     PHour = parseInt(currentTime[0])+9;
   }
-  if(defaultTime-2 <= 0){
+  if(defaultTime-4 <= 0){
     AHour = parseInt(currentTime[0])+8;
   }
-  if(defaultTime-2 <= 0){
+  if(defaultTime-5 <= 0){
     HiHour = parseInt(currentTime[0])+7;
   }
 
